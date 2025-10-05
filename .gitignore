@@ -1,3 +1,4 @@
 *.pkl
 *.mp4
+*.mkv
 .venv/
