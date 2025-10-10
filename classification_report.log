@@ -1,0 +1,129 @@
+
+
+==============================
+📅 Report generado: 2025-10-07 09:57:05
+Modelo: f:/Documentos/scripts/ia_generar_clips_rust/modelo_rust_svm.pkl
+Parámetros óptimos: {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}
+🔹 Accuracy global: 0.8462
+🎬 Total de vídeos procesados: 193
+📊 Vídeos por clase: coger_barca: 3, craftear_armas: 12, craftear_municion: 16, desatando_cajas_debajo_del_agua: 11, disparar_armas: 40, entrando_poblado_pesquero: 8, investigar_mesa_investigacion: 8, lootear_barriles: 25, lootear_recursos: 7, mision_bucear_conseguir_pump: 4, mision_pescar: 4, otros: 2, pescando: 13, picar_metal: 6, picar_piedra: 8, pvp: 7, reciclar: 11, recoger_madera: 8
+==============================
+                                 precision    recall  f1-score   support
+
+                    coger_barca       1.00      1.00      1.00         1
+                 craftear_armas       0.00      0.00      0.00         2
+              craftear_municion       0.60      1.00      0.75         3
+desatando_cajas_debajo_del_agua       1.00      0.50      0.67         2
+                 disparar_armas       0.89      1.00      0.94         8
+      entrando_poblado_pesquero       1.00      1.00      1.00         2
+  investigar_mesa_investigacion       1.00      1.00      1.00         2
+               lootear_barriles       0.83      1.00      0.91         5
+               lootear_recursos       1.00      1.00      1.00         1
+   mision_bucear_conseguir_pump       1.00      1.00      1.00         1
+                  mision_pescar       1.00      1.00      1.00         1
+                          otros       0.00      0.00      0.00         0
+                       pescando       0.75      1.00      0.86         3
+                    picar_metal       0.00      0.00      0.00         1
+                   picar_piedra       1.00      0.50      0.67         2
+                            pvp       1.00      1.00      1.00         1
+                       reciclar       1.00      1.00      1.00         2
+                 recoger_madera       0.50      0.50      0.50         2
+
+                       accuracy                           0.85        39
+                      macro avg       0.75      0.75      0.74        39
+                   weighted avg       0.80      0.85      0.81        39
+
+
+
+==============================
+📅 Report generado: 2025-10-07 13:52:08
+Modelo: f:/Documentos/scripts/ia_generar_clips_rust/modelo_rust_svm.pkl
+Parámetros óptimos: {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}
+🔹 Accuracy global: 0.8810
+🎬 Total de vídeos procesados: 208
+📊 Vídeos por clase: coger_barca: 3, craftear_armas: 1, craftear_municion: 16, desatando_cajas_debajo_del_agua: 11, disparar_armas: 48, entrando_outpost: 5, entrando_poblado_pesquero: 8, going_deep: 1, investigar_mesa_investigacion: 8, lootear_barriles: 26, lootear_cuerpos: 15, lootear_recursos: 7, matar_con_db: 13, mision_bucear_conseguir_pump: 4, mision_pescar: 4, otros: 2, pescando: 13, picar_metal: 6, picar_piedra: 2, reciclar: 13, recoger_madera: 2
+==============================
+                                 precision    recall  f1-score   support
+
+                    coger_barca       1.00      1.00      1.00         1
+              craftear_municion       0.00      0.00      0.00         0
+desatando_cajas_debajo_del_agua       1.00      1.00      1.00         3
+                 disparar_armas       1.00      1.00      1.00         2
+               entrando_outpost       0.75      0.90      0.82        10
+      entrando_poblado_pesquero       1.00      1.00      1.00         1
+  investigar_mesa_investigacion       1.00      1.00      1.00         2
+               lootear_barriles       0.00      0.00      0.00         0
+                lootear_cuerpos       1.00      1.00      1.00         2
+               lootear_recursos       1.00      1.00      1.00         5
+                   matar_con_db       1.00      1.00      1.00         3
+   mision_bucear_conseguir_pump       0.00      0.00      0.00         1
+                  mision_pescar       0.00      0.00      0.00         3
+                          otros       1.00      1.00      1.00         1
+                       pescando       1.00      1.00      1.00         1
+                    picar_metal       0.00      0.00      0.00         0
+                   picar_piedra       1.00      1.00      1.00         3
+                       reciclar       1.00      1.00      1.00         1
+                 recoger_madera       0.00      0.00      0.00         0
+
+                      micro avg       0.87      0.87      0.87        39
+                      macro avg       0.67      0.68      0.67        39
+                   weighted avg       0.83      0.87      0.85        39
+
+
+=== Reporte generado: 2025-10-07 16:37:54 ===
+                                 precision    recall  f1-score   support
+
+                    coger_barca       1.00      1.00      1.00         1
+              craftear_municion       0.00      0.00      0.00         0
+desatando_cajas_debajo_del_agua       1.00      1.00      1.00         3
+                 disparar_armas       0.67      1.00      0.80         2
+               entrando_outpost       0.82      0.90      0.86        10
+      entrando_poblado_pesquero       1.00      1.00      1.00         1
+  investigar_mesa_investigacion       1.00      1.00      1.00         2
+               lootear_barriles       0.00      0.00      0.00         0
+                lootear_cuerpos       1.00      1.00      1.00         2
+               lootear_recursos       1.00      1.00      1.00         5
+                   matar_con_db       0.75      1.00      0.86         3
+   mision_bucear_conseguir_pump       0.00      0.00      0.00         1
+                  mision_pescar       0.00      0.00      0.00         3
+                          otros       1.00      1.00      1.00         1
+                       pescando       1.00      1.00      1.00         1
+                    picar_metal       0.00      0.00      0.00         0
+                   picar_piedra       1.00      1.00      1.00         3
+                       reciclar       1.00      1.00      1.00         1
+                 recoger_madera       0.00      0.00      0.00         0
+
+                      micro avg       0.89      0.87      0.88        39
+                      macro avg       0.64      0.68      0.66        39
+                   weighted avg       0.81      0.87      0.84        39
+
+================================================================================
+
+=== Reporte generado: 2025-10-07 17:37:28 ===
+                                 precision    recall  f1-score   support
+
+                    coger_barca       1.00      1.00      1.00         1
+              craftear_municion       1.00      1.00      1.00         3
+desatando_cajas_debajo_del_agua       1.00      1.00      1.00         2
+                 disparar_armas       0.75      0.90      0.82        10
+               entrando_outpost       1.00      1.00      1.00         1
+      entrando_poblado_pesquero       1.00      1.00      1.00         2
+  investigar_mesa_investigacion       1.00      1.00      1.00         2
+               lootear_barriles       1.00      1.00      1.00         5
+                lootear_cuerpos       0.75      1.00      0.86         3
+               lootear_recursos       1.00      1.00      1.00         1
+                   matar_con_db       0.00      0.00      0.00         3
+   mision_bucear_conseguir_pump       1.00      1.00      1.00         1
+                  mision_pescar       1.00      1.00      1.00         1
+                          otros       0.00      0.00      0.00         0
+                       pescando       1.00      1.00      1.00         3
+                    picar_metal       1.00      1.00      1.00         1
+                   picar_piedra       0.00      0.00      0.00         0
+                       reciclar       1.00      1.00      1.00         3
+                 recoger_madera       0.00      0.00      0.00         0
+
+                       accuracy                           0.90        42
+                      macro avg       0.76      0.78      0.77        42
+                   weighted avg       0.85      0.90      0.88        42
+
+================================================================================

@@ -9,13 +9,33 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split, GridSearchCV
 import joblib
 import multiprocessing as mp
+from datetime import datetime
 
 # === CONFIGURACIÓN ===
 CURRENT_PATH = os.path.dirname(__file__).replace("\\", "/") + "/"
 DATASET_DIR = CURRENT_PATH + "dataset"   # carpeta raíz con subcarpetas por clase
 OUTPUT_MODEL = CURRENT_PATH + "modelo_rust_svm.pkl"
+LOG_FILE = CURRENT_PATH + "classification_report.log"
 FRAME_SAMPLE_RATE = 30
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+
+# === CONFIGURACIÓN DE LA MÁSCARA ===
+MASK_REGION = {
+    "x_ratio": 0.75,   # empieza al 75 % del ancho (parte derecha)
+    "y_ratio": 0.75,   # empieza al 75 % de la altura (parte inferior)
+    "width_ratio": 0.25,
+    "height_ratio": 0.25
+}
+
+def mask_face_region(frame):
+    """Enmascara la región donde aparece la cámara del jugador."""
+    h, w, _ = frame.shape
+    x1 = int(w * MASK_REGION["x_ratio"])
+    y1 = int(h * MASK_REGION["y_ratio"])
+    x2 = int(x1 + w * MASK_REGION["width_ratio"])
+    y2 = int(y1 + h * MASK_REGION["height_ratio"])
+    frame[y1:y2, x1:x2] = 0
+    return frame
 
 # === CARGAR CLIP ===
 print(f"🔹 Cargando modelo CLIP ({DEVICE})...")
@@ -36,6 +56,7 @@ def extract_frames(video_path, num_frames=FRAME_SAMPLE_RATE):
         ret, frame = cap.read()
         if ret:
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            frame = mask_face_region(frame)
             frames.append(frame)
     cap.release()
     return frames
@@ -80,7 +101,7 @@ if __name__ == "__main__":
 
     print(f"🔹 Procesando {len(tasks)} vídeos en paralelo...")
 
-    NUM_PROCESSES = min(4, mp.cpu_count())  # ajusta según tu equipo
+    NUM_PROCESSES = min(4, mp.cpu_count())
     with mp.Pool(processes=NUM_PROCESSES) as pool:
         results = list(tqdm(pool.imap_unordered(process_video, tasks), total=len(tasks)))
 
@@ -92,41 +113,46 @@ if __name__ == "__main__":
     X = np.stack(X)
     y = np.array(y)
 
-    # === División entrenamiento / prueba ===
+    # Filtrar clases con menos de 2 muestras
+    unique, counts = np.unique(y, return_counts=True)
+    valid_classes = [cls for cls, count in zip(unique, counts) if count >= 2]
+    mask = np.isin(y, valid_classes)
+    X, y = X[mask], y[mask]
+    classes = [c for i, c in enumerate(classes) if i in valid_classes]
+
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, stratify=y, random_state=42
     )
 
-    # Aviso de clases sin ejemplos en test
-    test_classes_present = set(y_test)
-    missing = [cls for i, cls in enumerate(classes) if i not in test_classes_present]
-    if missing:
-        print(f"⚠️ Clases sin muestras en TEST: {missing}")
-
-    # === ENTRENAR SVM ===
     print("\n🔹 Entrenando clasificador (SVM con kernel RBF)...")
-    param_grid = {
-        "C": [0.1, 1, 10],
-        "gamma": ["scale", 0.01, 0.001],
-        "kernel": ["rbf"]
-    }
-
+    param_grid = {"C": [0.1, 1, 10], "gamma": ["scale", 0.01, 0.001], "kernel": ["rbf"]}
     grid = GridSearchCV(SVC(probability=True), param_grid, cv=3, n_jobs=-1, verbose=2)
     grid.fit(X_train, y_train)
     clf = grid.best_estimator_
 
-    print(f"\n✅ Mejor configuración encontrada: {grid.best_params_}")
+    # === SOLUCIÓN INDEX ERROR ===
+    label_to_class = {label: cls for label, cls in zip(np.unique(y_train), classes)}
+    class_labels = [label_to_class[i] for i in clf.classes_]
 
-    # === EVALUAR ===
+    print(f"\n✅ Mejor configuración: {grid.best_params_}")
+
     y_pred = clf.predict(X_test)
-    print("\n📊 Resultados (TEST):")
-    print(classification_report(
+    report = classification_report(
         y_test, y_pred,
-        labels=np.arange(len(classes)),
-        target_names=classes,
+        labels=clf.classes_,
+        target_names=class_labels,
         zero_division=0
-    ))
+    )
 
-    # === GUARDAR MODELO ===
-    joblib.dump({"clf": clf, "classes": classes}, OUTPUT_MODEL)
+    print("\n📊 Resultados (TEST):")
+    print(report)
+
+    # Guardar el log con fecha
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
+        f.write(f"\n=== Reporte generado: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ===\n")
+        f.write(report)
+        f.write("\n" + "="*80 + "\n")
+
+    joblib.dump({"clf": clf, "classes": class_labels}, OUTPUT_MODEL)
     print(f"\n✅ Modelo guardado en: {OUTPUT_MODEL}")
+    print(f"📝 Reporte añadido a: {LOG_FILE}")
