@@ -8,7 +8,7 @@ from tkinter.filedialog import askopenfilename
 
 # === CONFIGURACIÓN ===
 CURRENT_PATH = os.path.dirname(__file__).replace("\\", "/") + "/"
-MODEL_PATH = CURRENT_PATH + "modelo_rust_svm.pkl"
+MODEL_PATH = CURRENT_PATH + "modelos/modelo_rust_svm.pkl"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 FRAME_SAMPLE_RATE = 30
 

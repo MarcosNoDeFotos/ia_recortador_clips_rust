@@ -1,0 +1,164 @@
+{
+    "coger_barca": [
+        "subirse a una barca",
+        "coger la barca",
+        "arrancar la barca",
+        "montar en la barca",
+        "subiendo a la barca"
+    ],
+    "craftear_armas": [
+        "fabricar un arma",
+        "craftear un arma",
+        "crear un arma",
+        "construir un arma",
+        "preparando armas"
+    ],
+    "craftear_municion": [
+        "fabricar munición",
+        "craftear balas",
+        "crear munición",
+        "preparar munición",
+        "elaborando balas"
+    ],
+    "desatando_cajas_debajo_del_agua": [
+        "abrir cajas bajo el agua",
+        "desatando cofres en el agua",
+        "recogiendo objetos de cajas sumergidas",
+        "sacando loot de cajas acuáticas",
+        "abrir cofres sumergidos"
+    ],
+    "disparar_armas": [
+        "disparar un arma",
+        "apuntar y disparar",
+        "pelear con armas",
+        "pvp con armas",
+        "usar armas de fuego"
+    ],
+    "entrando_outpost": [
+        "entrar en outpost",
+        "llegar al outpost",
+        "explorar outpost",
+        "acceder a la base enemiga",
+        "entrando en base"
+    ],
+    "entrando_poblado_pesquero": [
+        "entrar en poblado pesquero",
+        "explorar el pueblo",
+        "acceder al poblado",
+        "llegar a la aldea",
+        "visitar el poblado pesquero"
+    ],
+    "going_deep": [
+        "hacer un going deep",
+        "hacer going deep a alguien",
+        "hacer going deep en una base"
+    ],
+    "investigar_mesa_investigacion": [
+        "analizar la mesa de investigación",
+        "investigar en la mesa",
+        "usar mesa de estudio",
+        "observar los experimentos",
+        "revisar la mesa científica"
+    ],
+    "lootear_barriles": [
+        "recoger objetos de barriles",
+        "lootear barriles",
+        "abrir barriles para loot",
+        "barrilear",
+        "lootear barriles en la carretera",
+        "romper barriles",
+        "romper barriles con piedra",
+        "lootear barriles y cajas",
+        "coger componentes de barriles",
+        "lootear un barril",
+        "romper un barril",
+        "romper barriles de componentes"
+    ],
+    "lootear_cuerpos": [
+        "registrar cadáveres",
+        "lootear cuerpos",
+        "recoger objetos de cuerpos",
+        "abrir cuerpos para loot",
+        "examinar cuerpos caídos"
+    ],
+    "lootear_recursos": [
+        "recoger recursos del mapa",
+        "lootear materiales",
+        "extraer recursos",
+        "recolectar objetos",
+        "agarrar recursos"
+    ],
+    "matar_con_db": [
+        "matar enemigos con escopeta",
+        "asesinar con db",
+        "pvp usando escopeta",
+        "eliminar enemigos con db",
+        "disparar a enemigos con escopeta",
+        "matar a alguien con una db",
+        "matar con una escopeta"
+    ],
+    "mision_bucear_conseguir_pump": [
+        "realizar misión de buceo para pump",
+        "bucear y conseguir pump",
+        "recoger pump bajo el agua",
+        "completar misión de buceo",
+        "obtener pump en el agua"
+    ],
+    "mision_pescar": [
+        "realizar misión de pesca",
+        "pescar para la misión",
+        "completar misión pescando",
+        "capturar peces para la misión",
+        "pescar en misión"
+    ],
+    "pescando": [
+        "pescar en el río",
+        "usar caña de pescar",
+        "capturar peces",
+        "actividad de pesca",
+        "coger peces en agua"
+    ],
+    "disparando_arpon": [
+        "disparar un arpón",
+        "disparar bajo el agua",
+        "disparar en el agua",
+        "cazar a alguien bajo el agua",
+        "disparar a un enemigo sumergido",
+        "cazar tiburones",
+        "disparar a un tiburón"
+    ],
+    "picar_metal": [
+        "romper bloques de metal con pico",
+        "picando metal con herramienta",
+        "extraer mineral de metal",
+        "golpear metal con pico",
+        "recoger metal picado"
+    ],
+    "picar_piedra": [
+        "romper bloques de piedra con pico",
+        "extraer piedra con herramienta",
+        "golpear piedra con pico",
+        "picar mineral de piedra",
+        "recoger piedra picada"
+    ],
+    "reciclar": [
+        "reciclar objetos",
+        "desmontar materiales",
+        "transformar recursos en reciclaje",
+        "convertir objetos en componentes",
+        "procesar recursos",
+        "triturar componentes",
+        "reciclar componentes",
+        "reciclar en la trituradora",
+        "reciclar en la recicladora",
+        "triturar en la recicladora",
+        "triturar en la trituradora"
+    ],
+    "recoger_madera": [
+        "recoger madera del bosque",
+        "cortar árboles",
+        "obtener madera con hacha",
+        "recolectar troncos",
+        "extraer madera"
+    ]
+}

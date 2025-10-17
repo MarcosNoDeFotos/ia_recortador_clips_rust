@@ -2,3 +2,6 @@
 *.mp4
 *.mkv
 .venv/
+*.npy
+clips_generados/frames_cache/
+*.old

@@ -1,5 +1,7 @@
 import os
 import cv2
+if __name__ == "__main__":
+    print("Cargando librerías...")
 import torch
 import numpy as np
 from tqdm import tqdm
@@ -20,21 +22,42 @@ FRAME_SAMPLE_RATE = 30
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 # === CONFIGURACIÓN DE LA MÁSCARA ===
-MASK_REGION = {
-    "x_ratio": 0.75,   # empieza al 75 % del ancho (parte derecha)
-    "y_ratio": 0.75,   # empieza al 75 % de la altura (parte inferior)
-    "width_ratio": 0.25,
-    "height_ratio": 0.25
-}
+MASK_REGIONS = [
+    { # Cámara
+        "x_ratio": 0.01,
+        "y_ratio": 0.48,
+        "width_ratio": 0.25,
+        "height_ratio": 0.25
+    },
+    { # Salud, comida, agua
+        "x_ratio": 0.844,
+        "y_ratio": 0.87,
+        "width_ratio": 0.5,
+        "height_ratio": 0.5
+    },
+    { # brújula
+        "x_ratio": 0.31,
+        "y_ratio": 0,
+        "width_ratio": 0.39,
+        "height_ratio": 0.04
+    },
+    { # ping, fps
+        "x_ratio": 0,
+        "y_ratio": 0.95,
+        "width_ratio": 0.1,
+        "height_ratio": 0.05
+    },
+]
 
 def mask_face_region(frame):
     """Enmascara la región donde aparece la cámara del jugador."""
     h, w, _ = frame.shape
-    x1 = int(w * MASK_REGION["x_ratio"])
-    y1 = int(h * MASK_REGION["y_ratio"])
-    x2 = int(x1 + w * MASK_REGION["width_ratio"])
-    y2 = int(y1 + h * MASK_REGION["height_ratio"])
-    frame[y1:y2, x1:x2] = 0
+    for maskRegion in MASK_REGIONS:
+        x1 = int(w * maskRegion["x_ratio"])
+        y1 = int(h * maskRegion["y_ratio"])
+        x2 = int(x1 + w * maskRegion["width_ratio"])
+        y2 = int(y1 + h * maskRegion["height_ratio"])
+        frame[y1:y2, x1:x2] = 0
     return frame
 
 # === CARGAR CLIP ===

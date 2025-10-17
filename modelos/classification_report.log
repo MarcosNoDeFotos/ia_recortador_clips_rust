@@ -127,3 +127,62 @@ desatando_cajas_debajo_del_agua       1.00      1.00      1.00         2
                    weighted avg       0.85      0.90      0.88        42
 
 ================================================================================
+
+=== Reporte generado: 2025-10-11 18:25:08 ===
+                                 precision    recall  f1-score   support
+
+                    coger_barca       1.00      1.00      1.00         1
+              craftear_municion       1.00      1.00      1.00         3
+desatando_cajas_debajo_del_agua       1.00      1.00      1.00         2
+                 disparar_armas       0.75      0.90      0.82        10
+               entrando_outpost       1.00      1.00      1.00         1
+      entrando_poblado_pesquero       1.00      1.00      1.00         2
+  investigar_mesa_investigacion       1.00      1.00      1.00         2
+               lootear_barriles       1.00      1.00      1.00         5
+                lootear_cuerpos       1.00      1.00      1.00         3
+               lootear_recursos       1.00      1.00      1.00         1
+                   matar_con_db       0.00      0.00      0.00         3
+   mision_bucear_conseguir_pump       1.00      1.00      1.00         1
+                  mision_pescar       1.00      1.00      1.00         1
+                          otros       0.00      0.00      0.00         0
+                       pescando       1.00      1.00      1.00         3
+                    picar_metal       1.00      1.00      1.00         1
+                   picar_piedra       0.00      0.00      0.00         0
+                       reciclar       1.00      1.00      1.00         3
+                 recoger_madera       0.00      0.00      0.00         0
+
+                       accuracy                           0.90        42
+                      macro avg       0.78      0.78      0.78        42
+                   weighted avg       0.87      0.90      0.89        42
+
+================================================================================
+
+=== Reporte generado: 2025-10-17 12:45:15 ===
+                                 precision    recall  f1-score   support
+
+                    coger_barca       0.00      0.00      0.00         0
+                 craftear_armas       1.00      1.00      1.00         1
+              craftear_municion       1.00      1.00      1.00         3
+desatando_cajas_debajo_del_agua       1.00      1.00      1.00         3
+               disparando_arpon       1.00      1.00      1.00         1
+                 disparar_armas       1.00      0.80      0.89         5
+               entrando_outpost       1.00      1.00      1.00         1
+      entrando_poblado_pesquero       0.67      1.00      0.80         2
+  investigar_mesa_investigacion       1.00      1.00      1.00         2
+               lootear_barriles       1.00      1.00      1.00         5
+                lootear_cuerpos       0.75      1.00      0.86         3
+               lootear_recursos       1.00      1.00      1.00         1
+                   matar_con_db       1.00      1.00      1.00         3
+   mision_bucear_conseguir_pump       1.00      1.00      1.00         1
+                  mision_pescar       0.00      0.00      0.00         1
+                       pescando       1.00      1.00      1.00         3
+                    picar_metal       1.00      1.00      1.00         7
+                   picar_piedra       1.00      1.00      1.00        11
+                       reciclar       1.00      1.00      1.00         3
+                 recoger_madera       1.00      1.00      1.00         8
+
+                       accuracy                           0.97        64
+                      macro avg       0.87      0.89      0.88        64
+                   weighted avg       0.96      0.97      0.96        64
+
+================================================================================
